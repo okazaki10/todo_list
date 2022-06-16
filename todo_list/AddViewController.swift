@@ -49,7 +49,7 @@ class AddViewController:UIViewController{
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 
                 guard let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController else {return}
-                self.navigationController?.pushViewController(loginVC, animated: true)
+                self.navigationController?.popViewController(animated: true)
              
                 
             }))
