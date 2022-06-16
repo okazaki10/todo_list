@@ -38,10 +38,24 @@ class AddViewController:UIViewController{
             showAlert(isi: "Mohon isi subtitle")
             return
         }
+       
         sql?.insertTodoList(title: title, subTitle: subtitle, task: task)
         viewController?.populate()
+        berhasil()
     }
-    
+    func berhasil(){
+     
+        let alert=UIAlertController(title: "Alert", message: "Berhasil", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
+                
+                let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                self.navigationController?.pushViewController(loginVC, animated: true)
+             
+                
+            }))
+            self.present(alert,animated: true,completion: nil)
+        
+    }
     func showAlert(isi:String){
         let alert=UIAlertController(title: "Alert", message: isi, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
