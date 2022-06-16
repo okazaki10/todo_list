@@ -48,7 +48,7 @@ class AddViewController:UIViewController{
         let alert=UIAlertController(title: "Alert", message: "Berhasil", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { (action: UIAlertAction!) in
                 
-                let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                guard let loginVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ViewController") as? ViewController else {return}
                 self.navigationController?.pushViewController(loginVC, animated: true)
              
                 
